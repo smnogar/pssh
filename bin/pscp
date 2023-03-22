@@ -27,7 +27,7 @@ from psshlib.cli import common_parser, common_defaults
 
 def option_parser():
     parser = common_parser()
-    parser.usage = "%prog [OPTIONS] local remote"
+    parser.usage = "%prog [OPTIONS] source dest"
     parser.epilog = ("Example: pscp -h hosts.txt -l irb2 foo.txt " +
             "/home/irb2/foo.txt")
 
