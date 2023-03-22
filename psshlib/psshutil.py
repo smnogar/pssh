@@ -5,6 +5,7 @@ import fcntl
 import re
 import sys
 import fnmatch
+import urllib.parse
 
 HOST_FORMAT = 'Host format is [user@]host[:port] [user]'
 
@@ -92,12 +93,10 @@ def parse_host(host, default_user=None, default_port=None):
 
     Returns a (host, port, user) triple.
     """
-    user = default_user
-    port = default_port
-    if '@' in host:
-        user, host = host.split('@', 1)
-    if ':' in host:
-        host, port = host.rsplit(':', 1)
+    u = urllib.parse.urlparse('ssh://' + host)
+    host = u.hostname
+    user = u.username or default_user
+    port = u.port or default_port
     return (host, port, user)
 
 
