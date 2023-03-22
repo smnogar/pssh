@@ -28,8 +28,8 @@ pscp \(em parallel file upload program
 .IR args ]
 .RB [ \-X
 .IR arg ]
-.I local
-.I remote
+.I source
+.I dest
 
 
 .SH DESCRIPTION
@@ -200,6 +200,11 @@ options.
 .B \-\-recursive
 Recursively copy directories.
 
+
+.TP
+.B \-\-download
+Download from remote instead of upload. The downloaded files will be placed
+inside a directory named after host.
 
 .\" .SH EXAMPLES
 
