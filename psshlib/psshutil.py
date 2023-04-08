@@ -96,7 +96,7 @@ def parse_host(host, default_user=None, default_port=None):
     u = urllib.parse.urlparse('ssh://' + host)
     host = u.hostname
     user = u.username or default_user
-    port = u.port or default_port
+    port = str(u.port or default_port)
     return (host, port, user)
 
 
