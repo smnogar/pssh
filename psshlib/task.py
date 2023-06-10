@@ -30,7 +30,10 @@ class Task(object):
         self.exitstatus = None
 
         self.host = host
-        self.pretty_host = host
+        if ':' in host:
+            self.pretty_host = '[' + host + ']'
+        else:
+            self.pretty_host = host
         self.port = port
         self.cmd = cmd
 
